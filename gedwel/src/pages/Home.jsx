@@ -1,0 +1,172 @@
+import { Link } from 'react-router-dom';
+
+const Home = () => {
+  const features = [
+    {
+      icon: '🏥',
+      title: 'Medical Equipment Supply',
+      description: 'High-quality medical devices and hospital furniture'
+    },
+    {
+      icon: '🛣️',
+      title: 'Road Construction',
+      description: 'Design, construction, and maintenance of roads'
+    },
+    {
+      icon: '💧',
+      title: 'Water Works',
+      description: 'Complete water supply and treatment solutions'
+    },
+    {
+      icon: '🏗️',
+      title: 'Building Construction',
+      description: 'Residential, commercial, and institutional buildings'
+    }
+  ];
+
+  const clients = [
+    'Ministry of Health',
+    'County Governments',
+    'Private Hospitals',
+    'NGOs',
+    'Development Partners',
+    'Corporate Clients'
+  ];
+
+  return (
+    <>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-gedwel-blue to-gedwel-light text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/50 z-0"></div>
+        <div className="container-custom relative z-10 min-h-[80vh] flex items-center">
+          <div className="max-w-3xl animate-slide-up">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Building Kenya's Future
+              <span className="block text-2xl md:text-3xl lg:text-4xl mt-2">
+                Medical & Construction Excellence
+              </span>
+            </h1>
+            <p className="text-xl mb-8 text-gray-200">
+              GEDWEL SOLUTION LIMITED delivers comprehensive infrastructure solutions and high-quality medical equipment supply across Kenya.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link to="/contact" className="btn-primary bg-white text-gedwel-blue hover:bg-gray-100 text-center">
+                Get a Quote
+              </Link>
+              <Link to="/services" className="btn-secondary text-center">
+                Our Services
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Company Summary */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="section-title">GEDWEL SOLUTION LIMITED</h2>
+            <p className="text-lg text-gray-700 mb-8">
+              A multidisciplinary company specializing in the supply of high-quality medical equipment and the delivery of comprehensive infrastructure solutions. The company engages in construction, including building works, road construction, civil engineering, and water projects.
+            </p>
+            <p className="text-gray-600">
+              With a strong focus on quality, safety, and innovation, we provide end-to-end services that meet national and international standards. Our experienced team ensures that every project—whether in healthcare supply, construction, or infrastructure development—is executed with professionalism, precision, and a commitment to long-term sustainability.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <h2 className="section-title">Why Choose GEDWEL</h2>
+          <p className="section-subtitle">
+            We pride ourselves on delivering reliable, cost-effective, and client-centered solutions that support community development and institutional growth.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <div key={index} className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition duration-300 animate-fade-in">
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-bold text-gedwel-dark mb-3">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Services */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <h2 className="section-title">Our Core Services</h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h3 className="text-2xl font-bold text-gedwel-dark mb-4">Medical Equipment Supply</h3>
+              <ul className="space-y-3">
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-gedwel-blue rounded-full"></div>
+                  <span>Diagnostic equipment & laboratory analyzers</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-gedwel-blue rounded-full"></div>
+                  <span>Hospital furniture & surgical equipment</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-gedwel-blue rounded-full"></div>
+                  <span>ICU equipment & medical oxygen plants</span>
+                </li>
+              </ul>
+              <Link to="/services" className="inline-block mt-6 text-gedwel-blue hover:text-gedwel-light font-semibold">
+                View All Medical Services →
+              </Link>
+            </div>
+            
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h3 className="text-2xl font-bold text-gedwel-dark mb-4">Construction Services</h3>
+              <ul className="space-y-3">
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-gedwel-blue rounded-full"></div>
+                  <span>Road construction & maintenance</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-gedwel-blue rounded-full"></div>
+                  <span>Water works & borehole drilling</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-gedwel-blue rounded-full"></div>
+                  <span>Building construction & civil works</span>
+                </li>
+              </ul>
+              <Link to="/services" className="inline-block mt-6 text-gedwel-blue hover:text-gedwel-light font-semibold">
+                View All Construction Services →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Clients/Partners */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <h2 className="section-title">Trusted By</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {clients.map((client, index) => (
+              <div key={index} className="bg-gray-100 rounded-lg p-6 text-center hover:bg-gray-200 transition duration-300">
+                <div className="text-gray-400 mb-2">
+                  <svg className="w-8 h-8 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="text-gray-700 font-medium">{client}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Home;
