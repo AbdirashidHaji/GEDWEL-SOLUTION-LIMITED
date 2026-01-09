@@ -2,9 +2,9 @@
 
 **GEDWEL SOLUTION LIMITED** is a premier multidisciplinary company in Kenya, specializing in **Infrastructure Development** and **Medical Equipment Supply**. This modern, responsive web application showcases the company's services, projects, and core values with a premium digital experience.
 
-🔗 **Live Website**: [https://gedwel.vercel.app/](https://gedwel.vercel.app/)
+🔗 **Live Website**: [https://gedwel-solution-limited.vercel.app/](https://gedwel-solution-limited.vercel.app/)
 
-![Gedwel Hero Preview](https://gedwel.vercel.app/assets/hero-bg-preview.png) <!-- Replace with actual screenshot if available, or remove -->
+![Gedwel Hero Preview](https://gedwel-solution-limited.vercel.app//assets/preview.png)
 
 ---
 
