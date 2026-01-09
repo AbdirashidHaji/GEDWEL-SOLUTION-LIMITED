@@ -4,7 +4,7 @@
 
 🔗 **Live Website**: [https://gedwel-solution-limited.vercel.app/](https://gedwel-solution-limited.vercel.app/)
 
-![Gedwel Preview](preview.png)
+![Gedwel Preview](src/assets/preview.png)
 
 ---
 
