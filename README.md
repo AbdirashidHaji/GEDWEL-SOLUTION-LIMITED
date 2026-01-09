@@ -35,29 +35,6 @@
 
 ## 📦 Installation & Setup
 
-To run this project locally, follow these steps:
-
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/yourusername/gedwel-solution.git
-    cd gedwel
-    ```
-
-2.  **Install Dependencies**
-    ```bash
-    npm install
-    ```
-
-3.  **Run Development Server**
-    ```bash
-    npm run dev
-    ```
-    The app will run at `http://localhost:5173`.
-
-4.  **Build for Production**
-    ```bash
-    npm run build
-    ```
 
 ## 📂 Project Structure
 
@@ -73,14 +50,5 @@ src/
 ├── App.jsx             # Main application component & Routing
 └── main.jsx            # Entry point & Providers
 ```
-
-## 📞 Contact
-
-**GEDWEL SOLUTION LIMITED**
-*   📍 **Location**: Nairobi, Kenya
-*   📞 **Phone**: +254 700 000000
-*   ✉️ **Email**: info@gedwelsolution.co.ke
-
----
 
 © 2026 GEDWEL SOLUTION LIMITED. All rights reserved.
