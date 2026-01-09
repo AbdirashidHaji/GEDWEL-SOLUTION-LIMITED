@@ -1,4 +1,5 @@
 import ServiceCard from '../components/ServiceCard';
+import SEO from '../components/layout/SEO';
 
 const Services = () => {
   const services = [
@@ -75,6 +76,11 @@ const Services = () => {
 
   return (
     <>
+      <SEO
+        title="Our Services"
+        description="Explore our comprehensive services in medical equipment supply, road construction, water works, and civil engineering."
+        url="/services"
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-gedwel-dark to-gedwel-blue text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-0"></div>
@@ -87,13 +93,13 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="section-padding">
+      <section className="section-padding dark:bg-gray-800">
         <div className="container-custom">
           <h2 className="section-title">Our Core Services</h2>
           <p className="section-subtitle">
             Delivering integrated solutions that meet both construction and healthcare needs across Kenya
           </p>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <ServiceCard
@@ -109,10 +115,10 @@ const Services = () => {
       </section>
 
       {/* Medical Equipment Details */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-gray-50 dark:bg-gray-900">
         <div className="container-custom">
           <h2 className="section-title">Medical Equipment Specialization</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
@@ -140,13 +146,13 @@ const Services = () => {
                 items: ['PPE Kits', 'Disposables', 'Laboratory Supplies', 'First Aid Kits', 'Medical Textiles']
               }
             ].map((category, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                <h3 className="text-xl font-bold text-gedwel-dark mb-4">{category.category}</h3>
+              <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                <h3 className="text-xl font-bold text-gedwel-dark dark:text-white mb-4">{category.category}</h3>
                 <ul className="space-y-2">
                   {category.items.map((item, idx) => (
                     <li key={idx} className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-gedwel-blue rounded-full"></div>
-                      <span className="text-gray-700">{item}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -157,13 +163,13 @@ const Services = () => {
       </section>
 
       {/* Construction Services Details */}
-      <section className="section-padding">
+      <section className="section-padding dark:bg-gray-800">
         <div className="container-custom">
           <h2 className="section-title">Construction Services Details</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-gedwel-dark mb-4">Building Construction</h3>
+              <h3 className="text-2xl font-bold text-gedwel-dark dark:text-white mb-4">Building Construction</h3>
               <div className="space-y-4">
                 {[
                   'Residential Buildings (Houses, Apartments)',
@@ -177,14 +183,14 @@ const Services = () => {
                     <div className="w-8 h-8 bg-gedwel-blue rounded-full flex items-center justify-center">
                       <span className="text-white text-sm">{index + 1}</span>
                     </div>
-                    <span className="text-gray-700">{item}</span>
+                    <span className="text-gray-700 dark:text-gray-300">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            
+
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-gedwel-dark mb-4">Infrastructure Development</h3>
+              <h3 className="text-2xl font-bold text-gedwel-dark dark:text-white mb-4">Infrastructure Development</h3>
               <div className="space-y-4">
                 {[
                   'Road & Highway Construction',
@@ -198,7 +204,7 @@ const Services = () => {
                     <div className="w-8 h-8 bg-gedwel-light rounded-full flex items-center justify-center">
                       <span className="text-white text-sm">{index + 1}</span>
                     </div>
-                    <span className="text-gray-700">{item}</span>
+                    <span className="text-gray-700 dark:text-gray-300">{item}</span>
                   </div>
                 ))}
               </div>
@@ -208,20 +214,20 @@ const Services = () => {
       </section>
 
       {/* Additional Services */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-gray-50 dark:bg-gray-900">
         <div className="container-custom">
           <h2 className="section-title">Additional Services</h2>
-          
+
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {additionalServices.map((service, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition duration-300">
+                <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition duration-300">
                   <div className="w-12 h-12 bg-gedwel-blue rounded-lg flex items-center justify-center mx-auto mb-4">
                     <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-gedwel-dark">{service}</h3>
+                  <h3 className="text-lg font-semibold text-gedwel-dark dark:text-white">{service}</h3>
                 </div>
               ))}
             </div>
@@ -230,7 +236,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding">
+      <section className="section-padding dark:bg-gray-800">
         <div className="container-custom">
           <div className="bg-gradient-to-r from-gedwel-blue to-gedwel-light rounded-2xl p-8 md:p-12 text-white text-center">
             <h2 className="text-3xl font-bold mb-6">Ready to Start Your Project?</h2>

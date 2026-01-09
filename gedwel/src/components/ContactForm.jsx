@@ -39,13 +39,13 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-lg p-6 md:p-8 animate-fade-in">
-      <h3 className="text-2xl font-bold text-gedwel-dark mb-6">Send us a Message</h3>
-      
+    <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 md:p-8 animate-fade-in">
+      <h3 className="text-2xl font-bold text-gedwel-dark dark:text-white mb-6">Send us a Message</h3>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Name */}
         <div>
-          <label className="block text-gray-700 mb-2" htmlFor="name">
+          <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="name">
             Full Name *
           </label>
           <input
@@ -55,14 +55,14 @@ const ContactForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gedwel-blue focus:border-transparent outline-none transition duration-300"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gedwel-blue focus:border-transparent outline-none transition duration-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             placeholder="John Doe"
           />
         </div>
 
         {/* Email */}
         <div>
-          <label className="block text-gray-700 mb-2" htmlFor="email">
+          <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="email">
             Email Address *
           </label>
           <input
@@ -72,14 +72,14 @@ const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gedwel-blue focus:border-transparent outline-none transition duration-300"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gedwel-blue focus:border-transparent outline-none transition duration-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             placeholder="john@example.com"
           />
         </div>
 
         {/* Phone */}
         <div>
-          <label className="block text-gray-700 mb-2" htmlFor="phone">
+          <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="phone">
             Phone Number *
           </label>
           <input
@@ -89,14 +89,14 @@ const ContactForm = () => {
             value={formData.phone}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gedwel-blue focus:border-transparent outline-none transition duration-300"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gedwel-blue focus:border-transparent outline-none transition duration-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             placeholder="+254 700 000000"
           />
         </div>
 
         {/* Company */}
         <div>
-          <label className="block text-gray-700 mb-2" htmlFor="company">
+          <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="company">
             Company/Organization
           </label>
           <input
@@ -105,14 +105,14 @@ const ContactForm = () => {
             name="company"
             value={formData.company}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gedwel-blue focus:border-transparent outline-none transition duration-300"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gedwel-blue focus:border-transparent outline-none transition duration-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             placeholder="Your company name"
           />
         </div>
 
         {/* Service Selection */}
         <div className="md:col-span-2">
-          <label className="block text-gray-700 mb-2" htmlFor="service">
+          <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="service">
             Service of Interest
           </label>
           <select
@@ -120,7 +120,7 @@ const ContactForm = () => {
             name="service"
             value={formData.service}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gedwel-blue focus:border-transparent outline-none transition duration-300"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gedwel-blue focus:border-transparent outline-none transition duration-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           >
             <option value="">Select a service</option>
             {services.map((service, index) => (
@@ -131,7 +131,7 @@ const ContactForm = () => {
 
         {/* Message */}
         <div className="md:col-span-2">
-          <label className="block text-gray-700 mb-2" htmlFor="message">
+          <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="message">
             Message *
           </label>
           <textarea
@@ -141,7 +141,7 @@ const ContactForm = () => {
             onChange={handleChange}
             required
             rows="6"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gedwel-blue focus:border-transparent outline-none transition duration-300 resize-none"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gedwel-blue focus:border-transparent outline-none transition duration-300 resize-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             placeholder="Tell us about your project requirements..."
           />
         </div>

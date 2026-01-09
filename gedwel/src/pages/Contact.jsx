@@ -1,4 +1,5 @@
 import ContactForm from '../components/ContactForm';
+import SEO from '../components/layout/SEO';
 
 const Contact = () => {
   const contactMethods = [
@@ -47,6 +48,11 @@ const Contact = () => {
 
   return (
     <>
+      <SEO
+        title="Contact Us"
+        description="Get in touch with GEDWEL SOLUTION LIMITED for quotes, inquiries, and consultations. Call, email or visit us in Nairobi."
+        url="/contact"
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-gedwel-dark to-gedwel-blue text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-0"></div>
@@ -59,13 +65,13 @@ const Contact = () => {
       </section>
 
       {/* Contact Information & Form */}
-      <section className="section-padding">
+      <section className="section-padding dark:bg-gray-800">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Information */}
             <div className="lg:col-span-1">
-              <h2 className="text-3xl font-bold text-gedwel-dark mb-8">Get in Touch</h2>
-              
+              <h2 className="text-3xl font-bold text-gedwel-dark dark:text-white mb-8">Get in Touch</h2>
+
               <div className="space-y-8">
                 {contactMethods.map((method, index) => (
                   <div key={index} className="flex items-start space-x-4">
@@ -73,13 +79,13 @@ const Contact = () => {
                       {method.icon}
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gedwel-dark mb-2">{method.title}</h3>
+                      <h3 className="text-xl font-semibold text-gedwel-dark dark:text-white mb-2">{method.title}</h3>
                       {method.details.map((detail, idx) => (
-                        <p key={idx} className="text-gray-600">
+                        <p key={idx} className="text-gray-600 dark:text-gray-300">
                           {method.action && idx === 0 ? (
-                            <a 
-                              href={method.action} 
-                              className="hover:text-gedwel-blue transition duration-300"
+                            <a
+                              href={method.action}
+                              className="hover:text-gedwel-blue dark:hover:text-blue-400 transition duration-300"
                               target={method.title === 'Office Address' ? '_blank' : '_self'}
                               rel="noopener noreferrer"
                             >
@@ -120,24 +126,24 @@ const Contact = () => {
       </section>
 
       {/* Google Maps */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-gray-50 dark:bg-gray-900">
         <div className="container-custom">
           <h2 className="section-title">Our Location</h2>
-          
+
           <div className="rounded-xl overflow-hidden shadow-lg">
-            <div className="h-[400px] bg-gray-200 flex items-center justify-center">
+            <div className="h-[400px] bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
               <div className="text-center">
                 <svg className="w-16 h-16 text-gedwel-blue mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
-                <h3 className="text-xl font-bold text-gedwel-dark mb-2">GEDWEL SOLUTION LIMITED</h3>
-                <p className="text-gray-600">Nairobi, Kenya</p>
-                <p className="text-gray-500 mt-4">Google Maps Integration Available</p>
+                <h3 className="text-xl font-bold text-gedwel-dark dark:text-white mb-2">GEDWEL SOLUTION LIMITED</h3>
+                <p className="text-gray-600 dark:text-gray-300">Nairobi, Kenya</p>
+                <p className="text-gray-500 dark:text-gray-400 mt-4">Google Maps Integration Available</p>
                 <a
                   href="https://maps.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-4 text-gedwel-blue hover:text-gedwel-light font-semibold"
+                  className="inline-block mt-4 text-gedwel-blue hover:text-gedwel-light dark:text-blue-400 dark:hover:text-blue-300 font-semibold"
                 >
                   View on Google Maps →
                 </a>
@@ -148,10 +154,10 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding">
+      <section className="section-padding dark:bg-gray-800">
         <div className="container-custom">
           <h2 className="section-title">Frequently Asked Questions</h2>
-          
+
           <div className="max-w-3xl mx-auto space-y-6">
             {[
               {
@@ -175,9 +181,9 @@ const Contact = () => {
                 answer: 'Absolutely! As a multidisciplinary company, we specialize in integrated solutions. We can handle hospital construction, medical equipment supply, and installation as a complete package.'
               }
             ].map((faq, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300">
-                <h3 className="text-xl font-semibold text-gedwel-dark mb-3">{faq.question}</h3>
-                <p className="text-gray-600">{faq.answer}</p>
+              <div key={index} className="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300">
+                <h3 className="text-xl font-semibold text-gedwel-dark dark:text-white mb-3">{faq.question}</h3>
+                <p className="text-gray-600 dark:text-gray-300">{faq.answer}</p>
               </div>
             ))}
           </div>

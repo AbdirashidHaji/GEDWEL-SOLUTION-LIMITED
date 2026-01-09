@@ -4,14 +4,14 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gedwel-dark text-white">
+    <footer className="bg-gedwel-dark dark:bg-gray-950 text-white transition-colors duration-300">
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-gedwel-blue font-bold text-2xl">G</span>
+              <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center p-2">
+                <img src="/logo.png" alt="GEDWEL Logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold">GEDWEL SOLUTION LIMITED</h2>

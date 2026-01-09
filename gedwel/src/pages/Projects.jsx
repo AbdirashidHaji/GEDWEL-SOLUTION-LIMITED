@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ProjectCard from '../components/ProjectCard';
+import SEO from '../components/layout/SEO';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -63,12 +64,17 @@ const Projects = () => {
     }
   ];
 
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
+  const filteredProjects = activeFilter === 'All'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   return (
     <>
+      <SEO
+        title="Our Projects"
+        description="View our portfolio of successful projects in medical equipment supply, hospital construction, road works, and water infrastructure across Kenya."
+        url="/projects"
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-gedwel-dark to-gedwel-blue text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-0"></div>
@@ -81,18 +87,17 @@ const Projects = () => {
       </section>
 
       {/* Project Filters */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-gray-50 dark:bg-gray-900">
         <div className="container-custom">
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {projectCategories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveFilter(category)}
-                className={`px-6 py-3 rounded-lg font-medium transition duration-300 ${
-                  activeFilter === category
-                    ? 'bg-gedwel-blue text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
-                }`}
+                className={`px-6 py-3 rounded-lg font-medium transition duration-300 ${activeFilter === category
+                  ? 'bg-gedwel-blue text-white'
+                  : 'bg-white text-gray-700 hover:bg-gray-100 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600'
+                  }`}
               >
                 {category}
               </button>
@@ -101,7 +106,7 @@ const Projects = () => {
 
           {/* Project Count */}
           <div className="text-center mb-8">
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-400">
               Showing <span className="font-bold text-gedwel-blue">{filteredProjects.length}</span> projects
               {activeFilter !== 'All' && ` in ${activeFilter}`}
             </p>
@@ -123,20 +128,20 @@ const Projects = () => {
           {/* Empty State */}
           {filteredProjects.length === 0 && (
             <div className="text-center py-12">
-              <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-24 h-24 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-700 mb-2">No projects found</h3>
-              <p className="text-gray-600">Try selecting a different category</p>
+              <h3 className="text-xl font-bold text-gray-700 dark:text-gray-200 mb-2">No projects found</h3>
+              <p className="text-gray-600 dark:text-gray-400">Try selecting a different category</p>
             </div>
           )}
         </div>
       </section>
 
       {/* Project Statistics */}
-      <section className="section-padding">
+      <section className="section-padding dark:bg-gray-800">
         <div className="container-custom">
           <div className="bg-gradient-to-r from-gedwel-blue to-gedwel-light rounded-2xl p-8 md:p-12 text-white">
             <h2 className="text-3xl font-bold mb-8 text-center">Project Impact</h2>
@@ -163,10 +168,10 @@ const Projects = () => {
       </section>
 
       {/* Project Process */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-gray-50 dark:bg-gray-900">
         <div className="container-custom">
           <h2 className="section-title">Our Project Process</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               {
@@ -194,8 +199,8 @@ const Projects = () => {
                 <div className="w-16 h-16 bg-gedwel-blue rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-4">
                   {process.step}
                 </div>
-                <h3 className="text-xl font-bold text-gedwel-dark mb-2">{process.title}</h3>
-                <p className="text-gray-600">{process.description}</p>
+                <h3 className="text-xl font-bold text-gedwel-dark dark:text-white mb-2">{process.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400">{process.description}</p>
               </div>
             ))}
           </div>
