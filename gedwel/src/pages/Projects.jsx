@@ -1,6 +1,9 @@
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import ProjectCard from '../components/ProjectCard';
 import SEO from '../components/layout/SEO';
+import RevealOnScroll from '../components/common/RevealOnScroll';
+import PageTransition from '../components/common/PageTransition';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -69,7 +72,7 @@ const Projects = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <>
+    <PageTransition>
       <SEO
         title="Our Projects"
         description="View our portfolio of successful projects in medical equipment supply, hospital construction, road works, and water infrastructure across Kenya."
@@ -79,10 +82,22 @@ const Projects = () => {
       <section className="relative bg-gradient-to-r from-gedwel-dark to-gedwel-blue text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-0"></div>
         <div className="container-custom relative z-10 py-20">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">Our Projects</h1>
-          <p className="text-xl text-gray-200 max-w-3xl">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold mb-6"
+          >
+            Our Projects
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-xl text-gray-200 max-w-3xl"
+          >
             Showcasing our commitment to excellence in construction and medical supply across Kenya.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -90,9 +105,12 @@ const Projects = () => {
       <section className="section-padding bg-gray-50 dark:bg-gray-900">
         <div className="container-custom">
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {projectCategories.map((category) => (
-              <button
+            {projectCategories.map((category, index) => (
+              <motion.button
                 key={category}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + index * 0.1 }}
                 onClick={() => setActiveFilter(category)}
                 className={`px-6 py-3 rounded-lg font-medium transition duration-300 ${activeFilter === category
                   ? 'bg-gedwel-blue text-white'
@@ -100,7 +118,7 @@ const Projects = () => {
                   }`}
               >
                 {category}
-              </button>
+              </motion.button>
             ))}
           </div>
 
@@ -115,13 +133,15 @@ const Projects = () => {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
-              <ProjectCard
-                key={index}
-                title={project.title}
-                category={project.category}
-                description={project.description}
-                imageUrl={project.imageUrl}
-              />
+              <RevealOnScroll key={index} delay={index * 0.1}>
+                {/* ProjectCard already has internal motion.div, but we wrap it for scroll reveal timing */}
+                <ProjectCard
+                  title={project.title}
+                  category={project.category}
+                  description={project.description}
+                  imageUrl={project.imageUrl}
+                />
+              </RevealOnScroll>
             ))}
           </div>
 
@@ -206,7 +226,7 @@ const Projects = () => {
           </div>
         </div>
       </section>
-    </>
+    </PageTransition>
   );
 };
 

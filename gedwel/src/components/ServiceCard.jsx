@@ -1,6 +1,14 @@
+import { motion } from 'framer-motion';
+
 const ServiceCard = ({ icon, title, description, features }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 animate-fade-in">
+    <motion.div
+      whileHover={{ y: -10, scale: 1.02 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl dark:shadow-gray-900/50"
+    >
       <div className="p-6">
         {/* Icon */}
         <div className="w-16 h-16 bg-gedwel-blue rounded-lg flex items-center justify-center mb-6 mx-auto">
@@ -28,7 +36,7 @@ const ServiceCard = ({ icon, title, description, features }) => {
 
       {/* Hover Effect Border */}
       <div className="h-1 bg-gradient-to-r from-gedwel-blue to-gedwel-light transform scale-x-0 hover:scale-x-100 transition-transform duration-300"></div>
-    </div>
+    </motion.div>
   );
 };
 

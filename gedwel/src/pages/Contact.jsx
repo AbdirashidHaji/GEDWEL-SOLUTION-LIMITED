@@ -1,5 +1,8 @@
+import { motion } from 'framer-motion';
 import ContactForm from '../components/ContactForm';
 import SEO from '../components/layout/SEO';
+import RevealOnScroll from '../components/common/RevealOnScroll';
+import PageTransition from '../components/common/PageTransition';
 
 const Contact = () => {
   const contactMethods = [
@@ -47,7 +50,7 @@ const Contact = () => {
   ];
 
   return (
-    <>
+    <PageTransition>
       <SEO
         title="Contact Us"
         description="Get in touch with GEDWEL SOLUTION LIMITED for quotes, inquiries, and consultations. Call, email or visit us in Nairobi."
@@ -57,10 +60,22 @@ const Contact = () => {
       <section className="relative bg-gradient-to-r from-gedwel-dark to-gedwel-blue text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-0"></div>
         <div className="container-custom relative z-10 py-20">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">Contact Us</h1>
-          <p className="text-xl text-gray-200 max-w-3xl">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold mb-6"
+          >
+            Contact Us
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-xl text-gray-200 max-w-3xl"
+          >
             Get in touch with our team for construction and medical supply solutions across Kenya.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -74,30 +89,32 @@ const Contact = () => {
 
               <div className="space-y-8">
                 {contactMethods.map((method, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">
-                      {method.icon}
+                  <RevealOnScroll key={index} delay={index * 0.1}>
+                    <div className="flex items-start space-x-4 bg-gray-50 dark:bg-gray-700 p-4 rounded-lg hover:shadow-md transition duration-300">
+                      <div className="flex-shrink-0">
+                        {method.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold text-gedwel-dark dark:text-white mb-2">{method.title}</h3>
+                        {method.details.map((detail, idx) => (
+                          <p key={idx} className="text-gray-600 dark:text-gray-300">
+                            {method.action && idx === 0 ? (
+                              <a
+                                href={method.action}
+                                className="hover:text-gedwel-blue dark:hover:text-blue-400 transition duration-300"
+                                target={method.title === 'Office Address' ? '_blank' : '_self'}
+                                rel="noopener noreferrer"
+                              >
+                                {detail}
+                              </a>
+                            ) : (
+                              detail
+                            )}
+                          </p>
+                        ))}
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-gedwel-dark dark:text-white mb-2">{method.title}</h3>
-                      {method.details.map((detail, idx) => (
-                        <p key={idx} className="text-gray-600 dark:text-gray-300">
-                          {method.action && idx === 0 ? (
-                            <a
-                              href={method.action}
-                              className="hover:text-gedwel-blue dark:hover:text-blue-400 transition duration-300"
-                              target={method.title === 'Office Address' ? '_blank' : '_self'}
-                              rel="noopener noreferrer"
-                            >
-                              {detail}
-                            </a>
-                          ) : (
-                            detail
-                          )}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
+                  </RevealOnScroll>
                 ))}
               </div>
 
@@ -189,7 +206,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </>
+    </PageTransition>
   );
 };
 

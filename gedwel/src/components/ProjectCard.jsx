@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 const ProjectCard = ({ title, category, description }) => {
   const categoryColors = {
     'Medical': 'bg-blue-100 text-blue-800',
@@ -7,7 +9,12 @@ const ProjectCard = ({ title, category, description }) => {
   };
 
   return (
-    <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 animate-fade-in">
+    <motion.div
+      whileHover={{ y: -10 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+    >
       {/* Image */}
       <div className="h-48 overflow-hidden bg-gray-200">
         <div className="w-full h-full bg-gradient-to-br from-gedwel-blue/20 to-gedwel-light/20 flex items-center justify-center">
@@ -43,7 +50,7 @@ const ProjectCard = ({ title, category, description }) => {
           </svg>
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

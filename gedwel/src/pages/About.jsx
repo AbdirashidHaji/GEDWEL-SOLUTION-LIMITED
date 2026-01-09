@@ -1,4 +1,7 @@
+import { motion } from 'framer-motion';
 import SEO from '../components/layout/SEO';
+import RevealOnScroll from '../components/common/RevealOnScroll';
+import PageTransition from '../components/common/PageTransition';
 
 const About = () => {
   const coreValues = [
@@ -54,7 +57,7 @@ const About = () => {
   ];
 
   return (
-    <>
+    <PageTransition>
       <SEO
         title="About Us"
         description="Learn about GEDWEL SOLUTION LIMITED, a multidisciplinary company dealing in construction, civil engineering, and medical equipment supply in Kenya."
@@ -64,10 +67,22 @@ const About = () => {
       <section className="relative bg-gradient-to-r from-gedwel-dark to-gedwel-blue text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-0"></div>
         <div className="container-custom relative z-10 py-20">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">About GEDWEL SOLUTION LIMITED</h1>
-          <p className="text-xl text-gray-200 max-w-3xl">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold mb-6"
+          >
+            About GEDWEL SOLUTION LIMITED
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-xl text-gray-200 max-w-3xl"
+          >
             Building Kenya's infrastructure while strengthening its healthcare system through excellence in construction and medical supply.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -130,11 +145,16 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {coreValues.map((value, index) => (
-              <div key={index} className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 border border-gray-100 dark:border-gray-600">
-                <div className="text-3xl mb-4">{value.icon}</div>
-                <h3 className="text-xl font-bold text-gedwel-dark dark:text-white mb-3">{value.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{value.description}</p>
-              </div>
+              <RevealOnScroll key={index} delay={index * 0.1}>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 border border-gray-100 dark:border-gray-600 h-full"
+                >
+                  <div className="text-3xl mb-4">{value.icon}</div>
+                  <h3 className="text-xl font-bold text-gedwel-dark dark:text-white mb-3">{value.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{value.description}</p>
+                </motion.div>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -211,7 +231,7 @@ const About = () => {
           </div>
         </div>
       </section>
-    </>
+    </PageTransition>
   );
 };
 

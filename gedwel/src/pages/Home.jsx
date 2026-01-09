@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import SEO from '../components/layout/SEO';
+import RevealOnScroll from '../components/common/RevealOnScroll';
+import PageTransition from '../components/common/PageTransition';
+import HeroCarousel from '../components/home/HeroCarousel';
+import BackgroundOrbs from '../components/layout/BackgroundOrbs';
 
 const Home = () => {
   const features = [
@@ -35,50 +40,32 @@ const Home = () => {
   ];
 
   return (
-    <>
+    <PageTransition>
+      {/* Background Decorations */}
+      <BackgroundOrbs />
+
       <SEO
         title="Construction & Medical Supply"
         description="GEDWEL SOLUTION LIMITED - Leading construction and medical equipment supply company in Kenya. Specializing in infrastructure development and healthcare solutions."
         keywords="construction company Kenya, medical equipment supplier Nairobi, road construction, building contractors, hospital furniture, water works"
       />
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-gedwel-blue to-gedwel-light text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/50 dark:bg-black/70 z-0 transition-colors duration-300"></div>
-        <div className="container-custom relative z-10 min-h-[80vh] flex items-center">
-          <div className="max-w-3xl animate-slide-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Building Kenya's Future
-              <span className="block text-2xl md:text-3xl lg:text-4xl mt-2">
-                Medical & Construction Excellence
-              </span>
-            </h1>
-            <p className="text-xl mb-8 text-gray-200">
-              GEDWEL SOLUTION LIMITED delivers comprehensive infrastructure solutions and high-quality medical equipment supply across Kenya.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contact" className="btn-primary bg-white text-gedwel-blue hover:bg-gray-100 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 text-center">
-                Get a Quote
-              </Link>
-              <Link to="/services" className="btn-secondary text-center">
-                Our Services
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroCarousel />
 
       {/* Company Summary */}
       <section className="section-padding bg-gray-50 dark:bg-gray-900">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="section-title">GEDWEL SOLUTION LIMITED</h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-              A multidisciplinary company specializing in the supply of high-quality medical equipment and the delivery of comprehensive infrastructure solutions. The company engages in construction, including building works, road construction, civil engineering, and water projects.
-            </p>
-            <p className="text-gray-600 dark:text-gray-400">
-              With a strong focus on quality, safety, and innovation, we provide end-to-end services that meet national and international standards. Our experienced team ensures that every project—whether in healthcare supply, construction, or infrastructure development—is executed with professionalism, precision, and a commitment to long-term sustainability.
-            </p>
-          </div>
+          <RevealOnScroll>
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="section-title">GEDWEL SOLUTION LIMITED</h2>
+              <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
+                A multidisciplinary company specializing in the supply of high-quality medical equipment and the delivery of comprehensive infrastructure solutions. The company engages in construction, including building works, road construction, civil engineering, and water projects.
+              </p>
+              <p className="text-gray-600 dark:text-gray-400">
+                With a strong focus on quality, safety, and innovation, we provide end-to-end services that meet national and international standards. Our experienced team ensures that every project—whether in healthcare supply, construction, or infrastructure development—is executed with professionalism, precision, and a commitment to long-term sustainability.
+              </p>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -92,11 +79,13 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="text-center p-6 rounded-xl bg-white dark:bg-gray-900 shadow-lg hover:shadow-xl transition duration-300 animate-fade-in">
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-gedwel-dark dark:text-white mb-3">{feature.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
-              </div>
+              <RevealOnScroll key={index} delay={index * 0.1}>
+                <div className="text-center p-6 rounded-xl bg-white dark:bg-gray-900 shadow-lg hover:shadow-xl transition duration-300 h-full">
+                  <div className="text-4xl mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-bold text-gedwel-dark dark:text-white mb-3">{feature.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
+                </div>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -171,7 +160,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </>
+    </PageTransition>
   );
 };
 

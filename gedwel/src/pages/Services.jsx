@@ -1,5 +1,8 @@
+import { motion } from 'framer-motion';
 import ServiceCard from '../components/ServiceCard';
 import SEO from '../components/layout/SEO';
+import RevealOnScroll from '../components/common/RevealOnScroll';
+import PageTransition from '../components/common/PageTransition';
 
 const Services = () => {
   const services = [
@@ -75,7 +78,7 @@ const Services = () => {
   ];
 
   return (
-    <>
+    <PageTransition>
       <SEO
         title="Our Services"
         description="Explore our comprehensive services in medical equipment supply, road construction, water works, and civil engineering."
@@ -85,10 +88,22 @@ const Services = () => {
       <section className="relative bg-gradient-to-r from-gedwel-dark to-gedwel-blue text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-0"></div>
         <div className="container-custom relative z-10 py-20">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">Our Services</h1>
-          <p className="text-xl text-gray-200 max-w-3xl">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold mb-6"
+          >
+            Our Services
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-xl text-gray-200 max-w-3xl"
+          >
             Comprehensive construction and medical supply solutions delivered with excellence and innovation.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -102,13 +117,16 @@ const Services = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-                features={service.features}
-              />
+              <RevealOnScroll key={index} delay={index * 0.1}>
+                {/* Wrapper div to ensure RevealOnScroll works with custom component if needed, 
+                    but ServiceCard already has motion.div, so we stagger its appearance here */}
+                <ServiceCard
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                  features={service.features}
+                />
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -146,17 +164,19 @@ const Services = () => {
                 items: ['PPE Kits', 'Disposables', 'Laboratory Supplies', 'First Aid Kits', 'Medical Textiles']
               }
             ].map((category, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                <h3 className="text-xl font-bold text-gedwel-dark dark:text-white mb-4">{category.category}</h3>
-                <ul className="space-y-2">
-                  {category.items.map((item, idx) => (
-                    <li key={idx} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-gedwel-blue rounded-full"></div>
-                      <span className="text-gray-700 dark:text-gray-300">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <RevealOnScroll key={index} delay={index * 0.1}>
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 h-full">
+                  <h3 className="text-xl font-bold text-gedwel-dark dark:text-white mb-4">{category.category}</h3>
+                  <ul className="space-y-2">
+                    {category.items.map((item, idx) => (
+                      <li key={idx} className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-gedwel-blue rounded-full"></div>
+                        <span className="text-gray-700 dark:text-gray-300">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -252,7 +272,7 @@ const Services = () => {
           </div>
         </div>
       </section>
-    </>
+    </PageTransition>
   );
 };
 
